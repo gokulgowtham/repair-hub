@@ -49,3 +49,17 @@ This project is part demo, part learning sandbox — perfect for your resume or 
 - ✔️ Responsive UI for mobile and desktop  
 - ✔️ Modular API routes for data handling  
 - ✔️ Environment-aware configuration (dev vs prod)  
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
