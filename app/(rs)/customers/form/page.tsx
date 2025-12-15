@@ -1,6 +1,7 @@
 import {getCustomer} from "@/lib/queries/getCustomer";
 import { customer } from "@/db/schema";
 import { BackButton } from "@/components/BackButton";
+import CustomerForm from "@/app/(rs)/customers/form/CustomerForm";
 
 export default async function CustomerFormPage({searchParams}: {searchParams: Promise<{customerId: string}>}) {
    let customerRecord: typeof customer.$inferSelect | null = null;
@@ -26,8 +27,14 @@ export default async function CustomerFormPage({searchParams}: {searchParams: Pr
                 </div>
             </div>
         )
-    }else {
+    } else if (customerId && customerRecord) {
+        return (
+            <CustomerForm customer={customerRecord} />
+        )
+    } else {
         //new Customer form component
+        return (
+            <CustomerForm />
+        )
     }
-
 }

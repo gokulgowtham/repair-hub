@@ -2,6 +2,7 @@ import { getTicket } from "@/lib/queries/getTicket";
 import { customer, ticket } from "@/db/schema";
 import { BackButton } from "@/components/BackButton";
 import { getCustomer } from "@/lib/queries/getCustomer";
+import TicketForm from "@/app/(rs)/tickets/form/TicketForm";
 
 export default async function TicketFormPage({ searchParams }: { searchParams: Promise<{ ticketId: string, customerId: string }> }) {
     let ticketRecord: typeof ticket.$inferSelect | null = null;
@@ -61,6 +62,9 @@ export default async function TicketFormPage({ searchParams }: { searchParams: P
             }
 
             // return ticket form component
+            return (
+                <TicketForm customer={customerRecord} />
+            )
         }
 
         //edit ticket form component
@@ -76,9 +80,11 @@ export default async function TicketFormPage({ searchParams }: { searchParams: P
                 )
 
             }
-            const customer = await getCustomer(ticketRecord.customerId);
+            const customerRecord = await getCustomer(ticketRecord.customerId);
             // Return ticket form component with customer
-            console.log('ticket form component with customer:', customer);
+            return (
+                <TicketForm customer={customerRecord} ticket={ticketRecord} />
+            )
         }
     }
 }
