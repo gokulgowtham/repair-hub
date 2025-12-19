@@ -10,6 +10,7 @@ import { TextAreaWithLabel } from '@/components/inputs/TextAreaWithLabel';
 import { InputWithLabel } from '@/components/inputs/InputWithLabel';
 import { CheckBoxWithLabel } from '@/components/inputs/CheckBoxWithLabel';
 
+//type for TicketFormProps
 type TicketFormProps = {
     customer: selectCustomerSchemaType;
     ticket?: selectTicketSchemaType;
